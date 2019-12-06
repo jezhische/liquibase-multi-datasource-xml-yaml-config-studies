@@ -1,0 +1,27 @@
+https://www.petrikainulainen.net/programming/gradle/getting-started-with-gradle-creating-a-spring-boot-web-application-project/
++ additional reading as references on the page
+https://docs.gradle.org/current/userguide/gradle_wrapper.html
+
+
+gradle init         in the directory containing the POM - to create gradle configuration from the maven one
+
+To make the Wrapper files available to other developers and execution environments you’ll need to check them into version control.
+By default the wrapper task picks the exact same Gradle version that was used to generate the Wrapper files.
+gradle/wrapper/gradle-wrapper.properties
+distributionUrl=https\://services.gradle.org/distributions/gradle-6.0.1-bin.zip
+So:
+gradle wrapper      generates the necessary Wrapper files in the project directory
+But:
+As it's explained above, to set the Gradle version the command could be:
+gradle wrapper --gradle-version 6.0.1 --distribution-type all
+
+
+gradle assemble     The assemble task runs only the tasks which are required to package our application
+gradle build        The build task runs the tasks which are required to package our application AND runs automated tests.
+                    (Both of these commands create the first-java-project.jar file to the build/libs directory.)
+But: It is recommended to always execute a build with the Wrapper to ensure a reliable, controlled and standardized
+execution of the build. So the command could be like follow:
+gradlew.bat build
+
+
+
