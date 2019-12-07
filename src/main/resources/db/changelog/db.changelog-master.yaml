@@ -1,6 +1,6 @@
 # databaseChangeLog: [logicalFilePath: ..., {changeSet: [createTable: {tableName: users, columns: [column: ] } ] }]
 databaseChangeLog:
-  - logicalFilePath: db/changelog/db.changelog-lesson1.yaml
+  - logicalFilePath: db/changelog/db.changelog-master.yaml
 # changeSet is the commit analog (can be committed or rollbacked)
   - changeSet:
       id: 1
@@ -36,11 +36,9 @@ databaseChangeLog:
               - column:
                   name: email
                   type: varchar(50)
-
-
   - changeSet:
       id: 2
-      author: your_liquibase_username
+      author: jezh
       comment: "Create admin user"
       changes:
         - insert:
@@ -71,3 +69,11 @@ databaseChangeLog:
         - delete:
             tableName: users
             where: username in ('admin', 'guest')
+
+#                     - changeSet:
+#                     id: 5
+#                     author: jezh
+#                       changes:
+#                               - delete:
+#                               tableName: users
+#                               where: username in ('admin', 'guest')
